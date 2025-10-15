@@ -11,20 +11,20 @@ public class DinoBits.Bar: Astal.Window {
 		exclusivity = EXCLUSIVE;
 		set_css_name("bar");
 
-		AstalRiver.River river = null; AstalRiver.get_default ();
-		if (river != null) {
-			//this.output = river.get_output(gdkmonitor.get_connector());
-			//if (this.output == null) {
-			//	river.output_added.connect((riv, name) => {
-			//		if (name == gdkmonitor.get_connector()) {
-			//			this.output = river.get_output(name);
-			//		}
-			//	});
-			//}
-			foreach (var o in river.get_outputs ()) {
-				stdout.printf("%s\n", o.name);
-			}
-		}
+		// AstalRiver.River river = null; AstalRiver.get_default ();
+		// if (river != null) {
+		// 	//this.output = river.get_output(gdkmonitor.get_connector());
+		// 	//if (this.output == null) {
+		// 	//	river.output_added.connect((riv, name) => {
+		// 	//		if (name == gdkmonitor.get_connector()) {
+		// 	//			this.output = river.get_output(name);
+		// 	//		}
+		// 	//	});
+		// 	//}
+		// 	foreach (var o in river.get_outputs ()) {
+		// 		stdout.printf("%s\n", o.name);
+		// 	}
+		// }
 		
 		//GLib.warning ("CLocl!");
 		//
@@ -43,6 +43,8 @@ public class DinoBits.Bar: Astal.Window {
 		//      });
 
 		var c = new DinoBits.Clock();
+        c.set_css_name("clock");
+        GLib.warning("Clock css name: %s", c.css_name);
 		child = c;
 		//var button = new Gtk.Button.with_label ("Click me!");
 		//button.clicked.connect (() => {
