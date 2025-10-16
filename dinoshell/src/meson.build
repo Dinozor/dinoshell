@@ -7,7 +7,8 @@ dependencies = [
   dependency('astal-4-4.0'),
   dependency('gtk4-layer-shell-0'),
   dependency('astal-io-0.1'),
-  dependency('astal-river-0.1'),
+  dependency('astal-hyprland-0.1'),
+  # dependency('astal-river-0.1'),
   # dependency('glib-2.0'),
   # dependency('astal-4-4.0'),
   # dependency('astal-battery-0.1'),
@@ -28,6 +29,7 @@ vala_sources = files(
   'App.vala',
   'Bar.vala',
   'Clock.vala',
+  'WorkspaceMap.vala',
 )
 # vala_sources = files(
 #   'Bar.vala',

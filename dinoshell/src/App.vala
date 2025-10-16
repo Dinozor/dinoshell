@@ -7,14 +7,11 @@ class DinoBits.App: Astal.Application {
     private Gtk.CssProvider css_provider;
     private GLib.FileMonitor css_file_monitor;
 
-	//public override void request(string msg, SocketConnection conn) {
-	//	AstalIO.write_sock.begin(conn, @"missing response implementation on $instance_name");
-	//}
 
 	public override void activate() {
 		base.activate();
-		if (AstalRiver.get_default() == null) {
-			GLib.warning("could not connect to river.\n");
+		if (AstalHyprland.get_default() == null) {
+			GLib.warning("could not connect to hyprland.\n");
 		}
 
         string exe_path = GLib.FileUtils.read_link("/proc/self/exe");
@@ -53,19 +50,10 @@ class DinoBits.App: Astal.Application {
                     (int) event,
                     monitored.get_path() ?? "(no description)"
                 );
-                if (monitored.get_basename() == "style.css") {
+                if (event != GLib.FileMonitorEvent.DELETED && monitored.get_basename() == "style.css") {
                     GLib.warning("reloading css...\n");
                     css_provider.load_from_path(monitored.get_path());
                 }
-
-                // if (event == FileMonitorEvent.CHANGES_DONE_HINT ||
-                //     event == FileMonitorEvent.CHANGED ||
-                //     event == FileMonitorEvent.MOVED_IN ||
-                //     event == FileMonitorEvent.CREATED ||
-                //     event == FileMonitorEvent.MOVED_OUT) {
-                //     GLib.warning("Reloading CSS...\n");
-                //     css_provider.load_from_path(css_dir);
-                // }
             });
         } catch (Error e) {
             GLib.warning("Could not monitor CSS file: %s", e.message);
