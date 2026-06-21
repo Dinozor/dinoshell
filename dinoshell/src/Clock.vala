@@ -26,8 +26,8 @@ public class DinoBits.Clock: Astal.Box {
         year.add_css_class("year");
 
 		children.append(day);
-		children.append(minute);
 		children.append(hour);
+		children.append(minute);
         children.append(year);
 
 		this.update_clock();
